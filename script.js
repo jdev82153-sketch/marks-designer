@@ -4,8 +4,8 @@
 ========================================= */
 
 // Troque pelo seu número real, incluindo código do país e DDD.
-// Exemplo de formato: 5511999999999
-const WHATSAPP_NUMBER = "5511999999999";
+// Exemplo de formato: 5517996272459
+const WHATSAPP_NUMBER = "5517996272459";
 
 const WHATSAPP_MESSAGE =
   "Olá! Conheci a Marks Designer pelo site e gostaria de conhecer os pacotes de artes.";
