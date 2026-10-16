@@ -1,60 +1,68 @@
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f8f6f1">
-  <meta name="description" content="Marks Designer — artes e comunicação visual para confeitarias e profissionais de nails. Conheça nossos projetos e pacotes.">
+  <meta name="theme-color" content="#f7f4ee">
+  <meta name="description" content="Marks Designer — design autoral para confeitarias e nail designers. Artes para marcas que merecem ser vistas.">
   <title>Marks Designer — Design com intenção</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
-<body>
 
-  <div class="intro" id="intro">
-    <span class="intro-mark">M.</span>
+<body>
+  <div class="intro" id="intro" aria-label="Marks Designer">
+    <div class="intro-logo">M<span>.</span></div>
     <p>MARKS DESIGNER</p>
     <span class="intro-line"></span>
-    <span class="intro-caption">Design feito para destacar.</span>
+    <small>Design feito para destacar.</small>
   </div>
 
   <header class="header">
-    <a href="#inicio" class="logo">marks<span>.</span><small>DESIGNER</small></a>
+    <a href="#inicio" class="logo" aria-label="Marks Designer — início">
+      marks<span>.</span>
+      <small>DESIGNER</small>
+    </a>
 
-    <button class="menu-toggle" id="menuToggle"
-      aria-label="Abrir menu" aria-expanded="false">
-      <span></span><span></span>
-    </button>
-
-    <nav class="nav" id="nav">
+    <nav class="nav" id="nav" aria-label="Navegação principal">
       <a href="#inicio">Início</a>
       <a href="#confeitarias">Confeitarias</a>
       <a href="#nails">Nails</a>
       <a href="#pacotes">Pacotes</a>
-      <a href="#contato" class="nav-cta">Vamos conversar ↗</a>
+      <a href="#contato" class="nav-contact">Vamos conversar <span>↗</span></a>
     </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Ativar modo escuro" title="Alternar tema">
+        <span class="theme-icon" id="themeIcon" aria-hidden="true">☾</span>
+      </button>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
   </header>
 
   <main>
     <section class="hero section" id="inicio">
       <div class="hero-copy reveal">
-        <span class="eyebrow"><span class="dot"></span> ESTÚDIO CRIATIVO INDEPENDENTE</span>
+        <span class="eyebrow"><span class="eyebrow-dot"></span> ESTÚDIO CRIATIVO INDEPENDENTE</span>
 
         <h1>Marcas que<br>merecem ser <em>vistas.</em></h1>
 
         <p class="hero-description">
           Design para negócios que têm algo especial a oferecer.
-          Criamos artes que valorizam seus produtos, comunicam
-          sua essência e aproximam sua marca dos clientes.
+          Artes pensadas para valorizar seus produtos, comunicar
+          sua essência e aproximar sua marca dos clientes.
         </p>
 
         <div class="hero-actions">
-          <a href="#confeitarias" class="button button-dark">Explorar projetos <span>↘</span></a>
-          <a href="#contato" class="text-link">Conheça nossos pacotes ↗</a>
+          <a href="#projetos" class="button button-dark">Explorar projetos <span>↘</span></a>
+          <a href="#pacotes" class="text-link">Conheça os pacotes ↗</a>
         </div>
 
         <div class="hero-note">
@@ -64,21 +72,28 @@
       </div>
 
       <div class="hero-art reveal">
-        <div class="hero-image"></div>
-        <div class="hero-stamp">DESIGN<br>WITH<br>INTENTION.</div>
+        <div class="hero-image-frame">
+          <img
+            src="AF976C84-0074-4DB8-B7BF-4911F340D988.png"
+            alt="Arte de design criada para confeitaria"
+            class="hero-image"
+            fetchpriority="high"
+          >
+        </div>
+        <div class="hero-stamp" aria-hidden="true">DESIGN<br>WITH<br>INTENTION.</div>
         <div class="hero-image-caption">
-          <span>IDENTIDADE VISUAL & SOCIAL MEDIA</span>
+          <span>DESIGN AUTORAL / MARKS</span>
           <span>MD. / 001</span>
         </div>
       </div>
     </section>
 
-    <section class="intro-strip">
-      <p>ESTÉTICA COM PROPÓSITO</p>
-      <span>✳</span>
-      <p>COMUNICAÇÃO COM PERSONALIDADE</p>
-      <span>✳</span>
-      <p>DETALHES QUE FAZEM DIFERENÇA</p>
+    <section class="intro-strip" aria-label="Nossa proposta">
+      <span>ESTÉTICA COM PROPÓSITO</span>
+      <span class="strip-symbol">✳</span>
+      <span>COMUNICAÇÃO COM PERSONALIDADE</span>
+      <span class="strip-symbol">✳</span>
+      <span>DETALHES QUE FAZEM DIFERENÇA</span>
     </section>
 
     <section class="collection section" id="confeitarias">
@@ -88,39 +103,39 @@
           <h2>Feito para dar<br><em>água na boca.</em></h2>
         </div>
         <p>
-          Para confeitarias que transformam ingredientes
-          em experiências e merecem uma comunicação à altura.
+          Para confeitarias que transformam ingredientes em experiências
+          e merecem uma comunicação visual à altura de cada criação.
         </p>
       </div>
 
-      <div class="project-grid bakery-grid">
+      <div class="project-grid bakery-grid" id="projetos">
         <article class="project project-large reveal">
-          <div class="project-image bakery-one">
-            <span class="image-tag">01 / CAMPANHA</span>
-          </div>
+          <a class="project-image" href="AF976C84-0074-4DB8-B7BF-4911F340D988.png" target="_blank" rel="noopener" aria-label="Abrir arte de confeitaria em tamanho original">
+            <img src="AF976C84-0074-4DB8-B7BF-4911F340D988.png" alt="Projeto de arte para confeitaria" loading="lazy">
+            <span class="image-tag">01 / CONFEITARIA</span>
+            <span class="image-open" aria-hidden="true">↗</span>
+          </a>
           <div class="project-info">
-            <div><h3>Doce Atelier</h3><p>Campanha de produtos · Direção visual</p></div>
+            <div>
+              <h3>Arte para confeitaria</h3>
+              <p>Design para produtos e campanhas</p>
+            </div>
             <span class="project-number">MD—01</span>
           </div>
         </article>
 
         <article class="project project-small reveal">
-          <div class="project-image bakery-two">
+          <a class="project-image" href="436F45CD-FFDA-421D-A9A3-84775C11AE09.png" target="_blank" rel="noopener" aria-label="Abrir segunda arte de confeitaria em tamanho original">
+            <img src="436F45CD-FFDA-421D-A9A3-84775C11AE09.png" alt="Segundo projeto de arte para confeitaria" loading="lazy">
             <span class="image-tag">02 / SOCIAL MEDIA</span>
-          </div>
+            <span class="image-open" aria-hidden="true">↗</span>
+          </a>
           <div class="project-info">
-            <div><h3>Entre Açúcar</h3><p>Conteúdo para redes sociais</p></div>
+            <div>
+              <h3>Comunicação visual</h3>
+              <p>Artes para redes sociais</p>
+            </div>
             <span class="project-number">MD—02</span>
-          </div>
-        </article>
-
-        <article class="project project-small reveal">
-          <div class="project-image bakery-three">
-            <span class="image-tag">03 / IDENTIDADE</span>
-          </div>
-          <div class="project-info">
-            <div><h3>Casa do Bolo</h3><p>Comunicação para confeitaria</p></div>
-            <span class="project-number">MD—03</span>
           </div>
         </article>
       </div>
@@ -139,39 +154,39 @@
             <h2>Detalhes que<br>fazem <em>brilhar.</em></h2>
           </div>
           <p>
-            Para nail designers que entendem que cada detalhe
-            importa — dentro do atendimento e também na imagem da marca.
+            Para nail designers que sabem que cada detalhe importa —
+            do atendimento à imagem profissional da sua marca.
           </p>
         </div>
 
         <div class="project-grid nails-grid">
           <article class="project project-small reveal">
-            <div class="project-image nails-one">
-              <span class="image-tag">01 / BEAUTY</span>
-            </div>
+            <a class="project-image" href="BDFE9DB4-9155-412C-98AA-581FC11E198D.png" target="_blank" rel="noopener" aria-label="Abrir arte de nails em tamanho original">
+              <img src="BDFE9DB4-9155-412C-98AA-581FC11E198D.png" alt="Projeto de design para nail designer" loading="lazy">
+              <span class="image-tag">01 / NAILS</span>
+              <span class="image-open" aria-hidden="true">↗</span>
+            </a>
             <div class="project-info">
-              <div><h3>Studio Amora</h3><p>Campanha para nail designer</p></div>
-              <span class="project-number">MD—04</span>
+              <div>
+                <h3>Design para nails</h3>
+                <p>Identidade para profissionais da beleza</p>
+              </div>
+              <span class="project-number">MD—03</span>
             </div>
           </article>
 
           <article class="project project-large reveal">
-            <div class="project-image nails-two">
-              <span class="image-tag">02 / EDITORIAL</span>
-            </div>
+            <a class="project-image" href="68826850-F5D1-4D9D-ABD8-B16C75FB6A9A.png" target="_blank" rel="noopener" aria-label="Abrir segunda arte de nails em tamanho original">
+              <img src="68826850-F5D1-4D9D-ABD8-B16C75FB6A9A.png" alt="Segundo projeto de design para nail designer" loading="lazy">
+              <span class="image-tag">02 / BEAUTY EDITORIAL</span>
+              <span class="image-open" aria-hidden="true">↗</span>
+            </a>
             <div class="project-info">
-              <div><h3>Maison Nails</h3><p>Estética visual para beleza</p></div>
-              <span class="project-number">MD—05</span>
-            </div>
-          </article>
-
-          <article class="project project-small reveal">
-            <div class="project-image nails-three">
-              <span class="image-tag">03 / SOCIAL MEDIA</span>
-            </div>
-            <div class="project-info">
-              <div><h3>Atelier das Unhas</h3><p>Artes para redes sociais</p></div>
-              <span class="project-number">MD—06</span>
+              <div>
+                <h3>Arte para beleza</h3>
+                <p>Comunicação visual para redes sociais</p>
+              </div>
+              <span class="project-number">MD—04</span>
             </div>
           </article>
         </div>
@@ -186,12 +201,12 @@
     <section class="packages section" id="pacotes">
       <div class="section-heading reveal">
         <div>
-          <span class="eyebrow">SERVIÇOS / 2026</span>
+          <span class="eyebrow">SERVIÇOS / MARKS DESIGNER</span>
           <h2>Escolha como<br>quer <em>aparecer.</em></h2>
         </div>
         <p>
           Soluções criativas para diferentes momentos do seu negócio.
-          Cada pacote pode ser adaptado às suas necessidades.
+          Cada projeto é desenvolvido de acordo com suas necessidades.
         </p>
       </div>
 
@@ -199,11 +214,11 @@
         <article class="package-card reveal">
           <span class="package-label">01 / PONTUAL</span>
           <h3>Arte individual</h3>
-          <p>Uma peça visual para destacar um produto, divulgar uma oferta ou anunciar uma novidade.</p>
+          <p>Uma peça visual para divulgar um produto, uma oferta ou uma novidade.</p>
           <ul>
             <li>Design personalizado</li>
             <li>Formato para redes sociais</li>
-            <li>Uma peça por projeto</li>
+            <li>Criação alinhada à sua marca</li>
           </ul>
           <a href="#contato" data-package="Arte individual" class="package-link">Solicitar orçamento ↗</a>
         </article>
@@ -211,64 +226,49 @@
         <article class="package-card package-featured reveal">
           <span class="package-label">02 / MAIS POSSIBILIDADES</span>
           <h3>Kit de artes</h3>
-          <p>Uma seleção de peças com unidade visual para deixar seu perfil mais organizado e profissional.</p>
+          <p>Uma seleção de peças com unidade visual para fortalecer a presença da sua marca.</p>
           <ul>
             <li>Conjunto de artes combinadas</li>
             <li>Identidade visual consistente</li>
-            <li>Peças alinhadas ao seu negócio</li>
+            <li>Peças alinhadas ao negócio</li>
           </ul>
           <a href="#contato" data-package="Kit de artes" class="package-link">Solicitar orçamento ↗</a>
         </article>
 
         <article class="package-card reveal">
-          <span class="package-label">03 / CONTINUIDADE</span>
-          <h3>Pacote mensal</h3>
-          <p>Conteúdo visual planejado para manter sua marca presente e suas campanhas sempre atualizadas.</p>
+          <span class="package-label">03 / SOB MEDIDA</span>
+          <h3>Projeto personalizado</h3>
+          <p>Uma proposta criativa pensada para o momento e os objetivos do seu negócio.</p>
           <ul>
-            <li>Quantidade definida em proposta</li>
-            <li>Planejamento de campanhas</li>
-            <li>Entrega conforme combinado</li>
+            <li>Conversa sobre suas necessidades</li>
+            <li>Proposta sob medida</li>
+            <li>Escopo definido com você</li>
           </ul>
-          <a href="#contato" data-package="Pacote mensal" class="package-link">Solicitar orçamento ↗</a>
+          <a href="#contato" data-package="Projeto personalizado" class="package-link">Solicitar orçamento ↗</a>
         </article>
       </div>
-      <p class="package-note">Valores definidos conforme a quantidade de peças, complexidade e prazo.</p>
-    </section>
 
-    <section class="about section">
-      <div class="about-mark reveal">M.</div>
-      <div class="about-copy reveal">
-        <span class="eyebrow">A ESSÊNCIA MARKS DESIGNER</span>
-        <h2>Menos do mesmo.<br><em>Mais identidade.</em></h2>
-        <p>
-          Acreditamos que um bom design não precisa gritar para ser notado.
-          Precisa ter intenção, personalidade e cuidado em cada detalhe.
-        </p>
-        <p>
-          Nosso objetivo é ajudar pequenos negócios a apresentar seu valor
-          com uma comunicação visual mais bonita, coerente e profissional.
-        </p>
-      </div>
+      <p class="package-note reveal">Os valores são definidos conforme o tipo de arte, a quantidade de peças e o escopo do projeto.</p>
     </section>
 
     <section class="contact-section" id="contato">
-      <div class="contact-inner reveal">
-        <span class="eyebrow">SEU PRÓXIMO PROJETO COMEÇA AQUI</span>
+      <div class="contact-content reveal">
+        <span class="eyebrow">O PRÓXIMO PROJETO PODE SER SEU</span>
         <h2>Vamos criar algo<br><em>memorável?</em></h2>
-        <p>Conte um pouco sobre seu negócio e vamos encontrar a melhor solução para sua marca.</p>
-        <a href="#" class="button button-light" id="whatsappButton">Conversar pelo WhatsApp <span>↗</span></a>
-        <span class="contact-caption">MARKS DESIGNER · DESIGN COM INTENÇÃO</span>
+        <p>Conte um pouco sobre seu negócio e vamos conversar sobre a melhor solução visual para sua marca.</p>
+        <a href="#" id="whatsappButton" class="button button-light">
+          Conversar pelo WhatsApp <span>↗</span>
+        </a>
+        <small>Atendimento para confeitarias e profissionais de nails.</small>
       </div>
+      <div class="contact-decoration" aria-hidden="true">M.</div>
     </section>
   </main>
 
   <footer class="footer">
     <a href="#inicio" class="logo">marks<span>.</span><small>DESIGNER</small></a>
-    <p>Design independente, feito com intenção.</p>
-    <a href="#inicio" class="back-top">VOLTAR AO TOPO ↑</a>
-    <span class="copyright">© <span id="year"></span> MARKS DESIGNER</span>
+    <p>Design feito para destacar.</p>
+    <span>© <span id="year"></span> Marks Designer</span>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
