@@ -1,19 +1,10 @@
 
-/* =========================================
-   MARKS DESIGNER — CONFIGURAÇÃO
-========================================= */
-
-// Troque pelo seu número real, incluindo código do país e DDD.
-// Exemplo de formato: 5517996272459
 const WHATSAPP_NUMBER = "5517996272459";
 
 const WHATSAPP_MESSAGE =
-  "Olá! Conheci a Marks Designer pelo site e gostaria de conhecer os pacotes de artes.";
+  "Olá! Conheci a Marks Designer pelo site e gostaria de conhecer os serviços e pacotes de artes.";
 
-/* =========================================
-   MODO CLARO E ESCURO
-========================================= */
-
+// MODO CLARO E ESCURO
 const html = document.documentElement;
 const themeToggle = document.getElementById("themeToggle");
 const themeIcon = document.getElementById("themeIcon");
@@ -23,7 +14,6 @@ function applyTheme(theme) {
   const isDark = theme === "dark";
 
   html.setAttribute("data-theme", isDark ? "dark" : "light");
-
   themeIcon.textContent = isDark ? "☀" : "☾";
 
   themeToggle.setAttribute(
@@ -31,13 +21,10 @@ function applyTheme(theme) {
     isDark ? "Ativar modo claro" : "Ativar modo escuro"
   );
 
-  themeToggle.setAttribute(
-    "title",
-    isDark ? "Ativar modo claro" : "Ativar modo escuro"
-  );
+  themeToggle.title = isDark ? "Ativar modo claro" : "Ativar modo escuro";
 
   if (themeColor) {
-    themeColor.setAttribute("content", isDark ? "#171614" : "#f7f4ee");
+    themeColor.content = isDark ? "#171614" : "#f7f4ee";
   }
 }
 
@@ -45,33 +32,25 @@ let savedTheme = "light";
 
 try {
   const storedTheme = localStorage.getItem("marks-designer-theme");
-
   if (storedTheme === "dark" || storedTheme === "light") {
     savedTheme = storedTheme;
   }
-} catch (error) {
-  // O site continua funcionando se o armazenamento estiver indisponível.
-}
+} catch (error) {}
 
 applyTheme(savedTheme);
 
 themeToggle.addEventListener("click", () => {
-  const currentTheme = html.getAttribute("data-theme");
-  const nextTheme = currentTheme === "dark" ? "light" : "dark";
+  const nextTheme =
+    html.getAttribute("data-theme") === "dark" ? "light" : "dark";
 
   applyTheme(nextTheme);
 
   try {
     localStorage.setItem("marks-designer-theme", nextTheme);
-  } catch (error) {
-    // A troca de tema continua funcionando nesta visita.
-  }
+  } catch (error) {}
 });
 
-/* =========================================
-   MENU PARA CELULAR
-========================================= */
-
+// MENU PARA CELULAR
 const menuToggle = document.getElementById("menuToggle");
 const nav = document.getElementById("nav");
 
@@ -101,21 +80,14 @@ nav.querySelectorAll("a").forEach((link) => {
 });
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    closeMenu();
-  }
+  if (event.key === "Escape") closeMenu();
 });
 
 window.addEventListener("resize", () => {
-  if (window.innerWidth > 760) {
-    closeMenu();
-  }
+  if (window.innerWidth > 760) closeMenu();
 });
 
-/* =========================================
-   ANIMAÇÕES AO ROLAR A PÁGINA
-========================================= */
-
+// ANIMAÇÕES AO ROLAR
 const revealElements = document.querySelectorAll(".reveal");
 
 if ("IntersectionObserver" in window) {
@@ -134,33 +106,17 @@ if ("IntersectionObserver" in window) {
     }
   );
 
-  revealElements.forEach((element) => {
-    observer.observe(element);
-  });
+  revealElements.forEach((element) => observer.observe(element));
 } else {
-  revealElements.forEach((element) => {
-    element.classList.add("visible");
-  });
+  revealElements.forEach((element) => element.classList.add("visible"));
 }
 
-/* =========================================
-   CONTATO PELO WHATSAPP
-========================================= */
-
+// WHATSAPP — TODOS OS BOTÕES USAM ESTE NÚMERO
 function openWhatsApp(message) {
   const number = WHATSAPP_NUMBER.replace(/\D/g, "");
 
-  if (!number || number === "5511999999999") {
-    alert(
-      "Configure seu número real de WhatsApp no início do arquivo script.js antes de usar os botões de contato."
-    );
-    return;
-  }
-
-  if (number.length < 12 || number.length > 13) {
-    alert(
-      "Confira o número. Use o código do Brasil (55), DDD e número, sem espaços ou símbolos."
-    );
+  if (!number) {
+    alert("O número do WhatsApp não foi configurado.");
     return;
   }
 
@@ -180,6 +136,7 @@ whatsappButton.addEventListener("click", (event) => {
   openWhatsApp(WHATSAPP_MESSAGE);
 });
 
+// BOTÕES DE ORÇAMENTO DOS PACOTES
 document.querySelectorAll("[data-package]").forEach((link) => {
   link.addEventListener("click", (event) => {
     event.preventDefault();
@@ -187,15 +144,11 @@ document.querySelectorAll("[data-package]").forEach((link) => {
     const packageName = link.dataset.package;
 
     const message =
-      `Olá! Conheci a Marks Designer pelo site e tenho interesse no pacote "${packageName}". Poderia me passar mais informações e o orçamento?`;
+      `Olá! Tenho interesse no pacote "${packageName}" da Marks Designer. Pode me passar o orçamento?`;
 
     openWhatsApp(message);
   });
 });
 
-/* =========================================
-   ANO AUTOMÁTICO NO RODAPÉ
-========================================= */
-
-document.getElementById("year").textContent =
-  new Date().getFullYear();
+// ANO AUTOMÁTICO
+document.getElementById("year").textContent = new Date().getFullYear();
